@@ -78,7 +78,7 @@
 		</nav>
 		
 		<nav>
-			总文章数 2
+			总文章数 3
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -173,6 +173,119 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-SOA架构与Dubbo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/02/SOA%E6%9E%B6%E6%9E%84%E4%B8%8EDubbo/">SOA架构与Dubbo</a>
+    </h1>
+  
+
+		
+
+        
+        <a href="/2020/07/02/SOA%E6%9E%B6%E6%9E%84%E4%B8%8EDubbo/" class="archive-article-date">
+  	<time datetime="2020-07-02T01:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#SOA架构<br>想要了解SOA架构先了解单体架构</p>
+<hr>
+<p>#单体架构</p>
+<p>单体架构是最简单的软件架构，常用于传统的应用软件开发以及传统 Web 应用。传统 Web 应用，一般是将所有功能模块都打包（jar、war）在一个 Web 容器（JBoss、Tomcat）中部署、运行。随着业务复杂度增加、技术团队规模扩大，在一个单体应用中维护代码，会降低开发效率，即使是处理一个小需求，也需要将所有机器上的应用全部部署一遍，增加了运维的复杂度。</p>
+<hr>
+<p>#SOA架构<br>        当某一天使用单体架构发现很难推进需求的开发、以及日积月累的技术债时，很多企业会开始做单体服务的拆分，拆分的方式一般有水平拆分和垂直拆分。垂直拆分是把一个应用拆成松耦合的多个独立的应用，让应用可以独立部署，有独立的团队进行维护；水平拆分是把一些通用的，会被很多上层服务调用的模块独立拆分出去，形成一个共享的基础服务，这样拆分可以对一些性能瓶颈的应用进行单独的优化和运维管理，也在一定程度上防止了垂直拆分的重复造轮子。<br>        SOA 也叫面向服务的架构，从单体服务到 SOA 的演进，需要结合水平拆分及垂直拆分。SOA 强调用统一的协议进行服务间的通信，服务间运行在彼此独立的硬件平台但是需通过统一的协议接口相互协作，也即将应用系统服务化。举个易懂的例子，单体服务如果相当于一个快餐店，所有的服务员职责都是一样的，又要负责收银结算，又要负责做汉堡，又要负责端盘子，又要负责打扫，服务员之间不需要有交流，用户来了后，服务员从前到后负责到底。SOA 相当于让服务员有职责分工，收银员负责收银，厨师负责做汉堡，保洁阿姨负责打扫等，所有服务员需要用同一种语言交流，方便工作协调。</p>
+<hr>
+<p>#Dubbox分布式服务框架</p>
+<p>   Dubbo 是阿里巴巴公司开源的一个基于Java的高性能开源RPC框架，使得应用可通过高性能的 RPC 实现服务的输出和输入功能，可以和 Spring框架无缝集成。后来因为某些原因没有维护，于是当当网在这之上推出了自己的Dubbox。<br>   Dubbox 和Dubbo本质上没有区别，名字的含义扩展了Dubbo而已，以下扩展出来的功能，也是选择Dubbox很重要的考察点。<br>·支持REST风格远程调用（HTTP + JSON/XML)，简化企业内部的跨语言交互。</p>
+<hr>
+<p>#Zookper注册中心作用</p>
+<p>   zookeeper用来注册服务和进行负载均衡，哪一个服务由哪一个机器来提供必需让调用者知道，简单来说就是ip地址和服务名称的对应关系。当然也可以 通过硬编码的方式把这种对应关系在调用方业务代码中实现，但是如果提供服务的机器挂掉调用者无法知晓，如果不更改代码会继续请求挂掉的机器提供服务。 zookeeper通过心跳机制可以检测挂掉的机器并将挂掉机器的ip和服务对应关系从列表中删除。至于支持高并发，简单来说就是横向扩展，在不更改代码 的情况通过添加机器来提高运算能力。通过添加新的机器向zookeeper注册服务，服务的提供者多了能服务的客户就多了。</p>
+<hr>
+<p>#Dubbox作用</p>
+<p>   是管理中间层的工具，在业务层到数据仓库间有非常多服务的接入和服务提供者需要调度，dubbo提供一个框架解决这个问题。<br>   注意这里的dubbo只是一个框架，至于你架子上放什么是完全取决于你的，就像一个汽车骨架，你需要配你的轮子引擎。这个框架中要完成调度必须要有一个分布式的注册中心，储存所有服务的元数据，你可以用zk，也可以用别的，只是大家都用zk。<br>　　Dubbo致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbo就是个服务框架，如果没有分布式的需求，其实是不需要用的，只有在分布式的时候，才有dubbo这样的分布式服务框架的需求，并且本质上是个服务调用的东东，说白了就是个远程服务调用的分布式框架。</p>
+<hr>
+<h1 id="zookeeper和dubbo的关系"><a href="#zookeeper和dubbo的关系" class="headerlink" title="zookeeper和dubbo的关系"></a>zookeeper和dubbo的关系</h1><p>  Dubbo的将注册中心进行抽象，是得它可以外接不同的存储媒介给注册中心提供服务，有ZooKeeper，Memcached，Redis等。<br>      引入了ZooKeeper作为存储媒介，也就把ZooKeeper的特性引进来。首先是负载均衡，单注册中心的承载能力是有限的，在流量达到一定程度的时 候就需要分流，负载均衡就是为了分流而存在的，一个ZooKeeper群配合相应的Web应用就可以很容易达到负载均衡；资源同步，单单有负载均衡还不 够，节点之间的数据和资源需要同步，ZooKeeper集群就天然具备有这样的功能；命名服务，将树状结构用于维护全局的服务地址列表，服务提供者在启动 的时候，向ZK上的指定节点/dubbo/${serviceName}/providers目录下写入自己的URL地址，这个操作就完成了服务的发布。 其他特性还有Mast选举，分布式锁等。</p>
+
+      
+	  
+		
+			
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+
+		
+		
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Dubbo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Dubbo//" class="article-tag-list-link color1">Dubbo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/02/SOA%E6%9E%B6%E6%9E%84%E4%B8%8EDubbo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -432,6 +545,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
