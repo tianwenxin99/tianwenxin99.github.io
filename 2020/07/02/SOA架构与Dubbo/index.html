@@ -16,7 +16,7 @@
 <meta property="og:description" content="#SOA架构想要了解SOA架构先了解单体架构  #单体架构 单体架构是最简单的软件架构，常用于传统的应用软件开发以及传统 Web 应用。传统 Web 应用，一般是将所有功能模块都打包（jar、war）在一个 Web 容器（JBoss、Tomcat）中部署、运行。随着业务复杂度增加、技术团队规模扩大，在一个单体应用中维护代码，会降低开发效率，即使是处理一个小需求，也需要将所有机器上的应用全部部署一遍">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-02T01:15:00.000Z">
-<meta property="article:modified_time" content="2020-07-02T01:32:18.610Z">
+<meta property="article:modified_time" content="2020-07-04T02:57:32.299Z">
 <meta property="article:author" content="The Fool">
 <meta property="article:tag" content="Dubbo">
 <meta name="twitter:card" content="summary">
@@ -76,7 +76,7 @@
 		</nav>
 		
 		<nav>
-			总文章数 4
+			总文章数 8
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -207,6 +207,8 @@
 <hr>
 <p>#SOA架构<br>        当某一天使用单体架构发现很难推进需求的开发、以及日积月累的技术债时，很多企业会开始做单体服务的拆分，拆分的方式一般有水平拆分和垂直拆分。垂直拆分是把一个应用拆成松耦合的多个独立的应用，让应用可以独立部署，有独立的团队进行维护；水平拆分是把一些通用的，会被很多上层服务调用的模块独立拆分出去，形成一个共享的基础服务，这样拆分可以对一些性能瓶颈的应用进行单独的优化和运维管理，也在一定程度上防止了垂直拆分的重复造轮子。<br>        SOA 也叫面向服务的架构，从单体服务到 SOA 的演进，需要结合水平拆分及垂直拆分。SOA 强调用统一的协议进行服务间的通信，服务间运行在彼此独立的硬件平台但是需通过统一的协议接口相互协作，也即将应用系统服务化。举个易懂的例子，单体服务如果相当于一个快餐店，所有的服务员职责都是一样的，又要负责收银结算，又要负责做汉堡，又要负责端盘子，又要负责打扫，服务员之间不需要有交流，用户来了后，服务员从前到后负责到底。SOA 相当于让服务员有职责分工，收银员负责收银，厨师负责做汉堡，保洁阿姨负责打扫等，所有服务员需要用同一种语言交流，方便工作协调。</p>
 <hr>
+<a id="more"></a>
+
 <p>#Dubbox分布式服务框架</p>
 <p>   Dubbo 是阿里巴巴公司开源的一个基于Java的高性能开源RPC框架，使得应用可通过高性能的 RPC 实现服务的输出和输入功能，可以和 Spring框架无缝集成。后来因为某些原因没有维护，于是当当网在这之上推出了自己的Dubbox。<br>   Dubbox 和Dubbo本质上没有区别，名字的含义扩展了Dubbo而已，以下扩展出来的功能，也是选择Dubbox很重要的考察点。<br>·支持REST风格远程调用（HTTP + JSON/XML)，简化企业内部的跨语言交互。</p>
 <hr>
@@ -500,6 +502,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">单元测试&反射&注解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多表查询&事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">count()的用法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DQL查询&约束</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SQL分类及基本用法</a>
               </li>
             
             <div class="clearfix"></div>

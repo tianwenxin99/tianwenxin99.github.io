@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文章分类 | Hexo</title>
+  <title>MySql之聚合函数count的用法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="本文内容1.count()函数用于查询表格总记录数。 2.count()函数用于分组统计重复数据。count函数查询表格总记录数* 当我们执行select count(name) from student时，得到的是当前表格的总记录数count函数用于分组统计重复数据* 当我们执行select * from student GROUP BY name HAVING COUNT(name) &gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql之聚合函数count的用法">
+<meta property="og:url" content="http://yoursite.com/2020/07/04/MySql%E4%B9%8B%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0count%E7%9A%84%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="本文内容1.count()函数用于查询表格总记录数。 2.count()函数用于分组统计重复数据。count函数查询表格总记录数* 当我们执行select count(name) from student时，得到的是当前表格的总记录数count函数用于分组统计重复数据* 当我们执行select * from student GROUP BY name HAVING COUNT(name) &gt;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-16T07:37:37.000Z">
-<meta property="article:modified_time" content="2020-06-16T07:39:33.296Z">
+<meta property="article:published_time" content="2020-07-04T03:16:00.000Z">
+<meta property="article:modified_time" content="2020-07-04T03:36:01.004Z">
 <meta property="article:author" content="The Fool">
-<meta property="article:tag" content="前端博客">
-<meta property="article:tag" content="后端博客">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="框架">
+<meta property="article:tag" content="count()的用法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -174,14 +170,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-MySql之聚合函数count的用法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文章分类
+      MySql之聚合函数count的用法
     </h1>
   
 
@@ -196,15 +192,18 @@
 		
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2020-06-16T07:37:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+        <a href="/2020/07/04/MySql%E4%B9%8B%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0count%E7%9A%84%E7%94%A8%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-07-04T03:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="本文内容"><a href="#本文内容" class="headerlink" title="本文内容"></a>本文内容</h1><pre><code>1.count()函数用于查询表格总记录数。
+2.count()函数用于分组统计重复数据。</code></pre><h1 id="count函数查询表格总记录数"><a href="#count函数查询表格总记录数" class="headerlink" title="count函数查询表格总记录数"></a>count函数查询表格总记录数</h1><pre><code>* 当我们执行select count(name) from student时，得到的是当前表格的总记录数</code></pre><h1 id="count函数用于分组统计重复数据"><a href="#count函数用于分组统计重复数据" class="headerlink" title="count函数用于分组统计重复数据"></a>count函数用于分组统计重复数据</h1><pre><code>* 当我们执行select * from student GROUP BY name HAVING COUNT(name) &gt;= 2这条语句时，统计的是name字段中具备相同名称出现的次数，当出现的次数&gt;=2时显示出来。
+* 利用count函数查询重复数据的方式
+这里感谢LDDXFS 大佬的总结：https://www.cnblogs.com/LDDXFS/p/9867928.html</code></pre>
       
 	  
 		
@@ -243,7 +242,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">count()的用法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySql//" class="article-tag-list-link color1">MySql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -293,7 +314,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/04/MySql%E4%B9%8B%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0count%E7%9A%84%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,6 +326,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/04/MySql%E4%B9%8B%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2-%E4%BA%8B%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySql之多表查询&amp;事务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -326,7 +357,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本文内容"><span class="toc-number">1.</span> <span class="toc-text">本文内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#count函数查询表格总记录数"><span class="toc-number">2.</span> <span class="toc-text">count函数查询表格总记录数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#count函数用于分组统计重复数据"><span class="toc-number">3.</span> <span class="toc-text">count函数用于分组统计重复数据</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -370,7 +401,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
