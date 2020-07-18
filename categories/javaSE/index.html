@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaWeb之Servlet与Jsp的执行原理与生命周期 | Hexo</title>
+  <title>Category: javaSE | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文内容1.Servlet运行原理 2.Servlet运行周期  3.Jsp运行原理  4.Jsp运行周期">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JavaWeb之Servlet与Jsp的执行原理与生命周期">
-<meta property="og:url" content="http://yoursite.com/2020/07/08/JavaWeb%E4%B9%8BServlet%E4%B8%8EJsp%E7%9A%84%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+  <meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/categories/javaSE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文内容1.Servlet运行原理 2.Servlet运行周期  3.Jsp运行原理  4.Jsp运行周期">
+<meta property="og:description" content="个人技术博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-08T08:04:00.000Z">
-<meta property="article:modified_time" content="2020-07-08T08:35:38.766Z">
 <meta property="article:author" content="The Fool">
-<meta property="article:tag" content="Servlet&amp;JSP原理">
+<meta property="article:tag" content="前端博客">
+<meta property="article:tag" content="后端博客">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="框架">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -170,294 +172,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JavaWeb之Servlet与Jsp的执行原理与生命周期" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JavaWeb之Servlet与Jsp的执行原理与生命周期
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/07/18/javaSE%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8D%97/" class="archive-article-date">
+  	<time datetime="2020-07-18T10:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/07/18/javaSE%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8D%97/">javaSE复习指南</a>
     </h1>
   
 
-		
-		  <br/>
-		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-		  <span class="icon-sort"></span>
-		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		  </span>
-		  </a>
-		
-
-        
-        <a href="/2020/07/08/JavaWeb%E4%B9%8BServlet%E4%B8%8EJsp%E7%9A%84%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
-  	<time datetime="2020-07-08T08:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本文内容"><a href="#本文内容" class="headerlink" title="本文内容"></a>本文内容</h2><pre><code>1.Servlet运行原理
-2.Servlet运行周期
- 3.Jsp运行原理
- 4.Jsp运行周期</code></pre><a id="more"></a>
-<h2 id="Servlet运行原理"><a href="#Servlet运行原理" class="headerlink" title="Servlet运行原理"></a>Servlet运行原理</h2><pre><code>*配置Servlet
-         在web.xml中配置：
-        &lt;!--配置Servlet --&gt;
-      `  &lt;servlet&gt;
-            &lt;servlet-name&gt;demo1&lt;/servlet-name&gt;
-            &lt;servlet-class&gt;cn.itcast.web.servlet.ServletDemo1&lt;/servlet-class&gt;
-        &lt;/servlet&gt;
-
-            &lt;servlet-mapping&gt;
-            &lt;servlet-name&gt;demo1&lt;/servlet-name&gt;
-            &lt;url-pattern&gt;/demo1&lt;/url-pattern&gt;
-        &lt;/servlet-mapping&gt;`
-
-   * 执行原理：
-    1. 当服务器接受到客户端浏览器的请求后，会解析请求URL路径，获取访问的Servlet的资源路径
-    2. 查找web.xml文件，是否有对应的&lt;url-pattern&gt;标签体内容。
-    3. 如果有，则在找到对应的&lt;servlet-class&gt;全类名
-    4. tomcat会将字节码文件加载进内存，并且创建其对象
-    5. 调用其方法</code></pre><h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><pre><code>* Servlet中的生命周期方法：
-    1. 被创建：执行init方法，只执行一次
-        * Servlet什么时候被创建？
-            * 默认情况下，第一次被访问时，Servlet被创建
-            * 可以配置执行Servlet的创建时机。
-                * 在&lt;servlet&gt;标签下配置
-                    1. 第一次被访问时，创建
-                        * &lt;load-on-startup&gt;的值为负数
-                    2. 在服务器启动时，创建
-                        * &lt;load-on-startup&gt;的值为0或正整数
-
-
-        * Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的
-            * 多个用户同时访问时，可能存在线程安全问题。
-            * 解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值
-
-        * 什么是单例和多例
-        * 单例模式和多例模式属于对象模式。
-        * 单例模式的对象在整个系统中只有一份，多例模式可以有多个实例。
-        *  它们都不对外提供构造方法，即构造方法都为私有。
-
-    2. 提供服务：执行service方法，执行多次
-        * 每次访问Servlet时，Service方法都会被调用一次。
-    3. 被销毁：执行destroy方法，只执行一次
-        * Servlet被销毁时执行。服务器关闭时，Servlet被销毁
-        * 只有服务器正常关闭时，才会执行destroy方法。
-        * destroy方法在Servlet被销毁之前执行，一般用于释放资源</code></pre><h2 id="JSP原理"><a href="#JSP原理" class="headerlink" title="JSP原理"></a>JSP原理</h2><pre><code>*以下步骤表明了 Web 服务器是如何使用JSP来创建网页的：
-
-1.浏览器发送一个 HTTP 请求给服务器。
-
-2.Web 服务器识别出这是一个对 JSP 网页的请求，并且将该请求传递给 JSP 引擎。通过使用 URL或者 .jsp 文件来完成。
-
-3.JSP 引擎从磁盘中载入 JSP 文件，然后将它们转化为 Servlet。这种转化只是简单地将所有模板文本改用 println() 语句，并且将所有的 JSP 元素转化成 Java 代码。
-
-4.JSP 引擎将 Servlet 编译成可执行类，并且将原始请求传递给 Servlet 引擎。
-
-5.Web 服务器的某组件将会调用 Servlet 引擎，然后载入并执行 Servlet 类。在执行过程中，Servlet 产生 HTML 格式的输出并将其内嵌于 HTTP response 中上交给 Web 服务器。
-
-6.Web 服务器以静态 HTML 网页的形式将 HTTP response 返回到您的浏览器中。
-
-7.最终，Web 浏览器处理 HTTP response 中动态产生的HTML网页，就好像在处理静态网页一样。</code></pre><h2 id="JSP生命周期"><a href="#JSP生命周期" class="headerlink" title="JSP生命周期"></a>JSP生命周期</h2><pre><code>*JSP生命周期就是从创建到销毁的整个过程，类似于servlet生命周期，区别在于JSP生命周期还包括将JSP文件编译成servlet。
-        **以下是JSP生命周期中所走过的几个阶段：
-
-编译阶段：
-    servlet容器编译servlet源文件，生成servlet类
-
-   初始化阶段：
-    加载与JSP对应的servlet类，创建其实例，并调用它的初始化方法
-
-执行阶段：
-    调用与JSP对应的servlet实例的服务方法
-
-销毁阶段：
-    调用与JSP对应的servlet实例的销毁方法，然后销毁servlet实例</code></pre>
-      
-	  
-		
-			
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-
-		
-		
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Servlet&JSP原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
+        			<a href="/categories/javaSE//" class="article-tag-list-link color2">javaSE</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/08/JavaWeb%E4%B9%8BServlet%E4%B8%8EJsp%E7%9A%84%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/07/18/javaSE%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          javaSE复习指南
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/07/08/JavaWeb%E4%B9%8BAjax-JSON/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaWeb之Ajax&amp;JSON</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本文内容"><span class="toc-number">1.</span> <span class="toc-text">本文内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet运行原理"><span class="toc-number">2.</span> <span class="toc-text">Servlet运行原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet生命周期"><span class="toc-number">3.</span> <span class="toc-text">Servlet生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSP原理"><span class="toc-number">4.</span> <span class="toc-text">JSP原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSP生命周期"><span class="toc-number">5.</span> <span class="toc-text">JSP生命周期</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -482,10 +250,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
